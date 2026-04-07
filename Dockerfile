@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM openjdk:21-jdk-slim as builder
+FROM eclipse-temurin:21-jdk as builder
 
 WORKDIR /app
 
@@ -16,7 +16,7 @@ COPY src ./src
 RUN ./mvnw clean package -DskipTests
 
 # Stage 2: Runtime image
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
